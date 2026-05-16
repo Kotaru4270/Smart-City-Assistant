@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "citypulse-frontend",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "env": {
+    "REACT_APP_API_URL": "@citypulse_api_url",
+    "REACT_APP_GOOGLE_MAPS_KEY": "@citypulse_gmaps_key"
+  }
+}

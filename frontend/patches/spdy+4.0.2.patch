@@ -1,0 +1,36 @@
+diff --git a/node_modules/spdy/lib/spdy/agent.js b/node_modules/spdy/lib/spdy/agent.js
+index 4adc524..b2cddcb 100644
+--- a/node_modules/spdy/lib/spdy/agent.js
++++ b/node_modules/spdy/lib/spdy/agent.js
+@@ -9,9 +9,10 @@ var transport = require('spdy-transport')
+ var debug = require('debug')('spdy:client')
+ 
+ // Node.js 0.10 and 0.12 support
+-Object.assign = process.versions.modules >= 46
+-  ? Object.assign // eslint-disable-next-line
+-  : util._extend
++if (!Object.assign) {
++  // eslint-disable-next-line
++  Object.assign = util._extend
++}
+ 
+ var EventEmitter = require('events').EventEmitter
+ 
+diff --git a/node_modules/spdy/lib/spdy/server.js b/node_modules/spdy/lib/spdy/server.js
+index 1889fcd..b8466be 100644
+--- a/node_modules/spdy/lib/spdy/server.js
++++ b/node_modules/spdy/lib/spdy/server.js
+@@ -12,9 +12,10 @@ var debug = require('debug')('spdy:server')
+ var EventEmitter = require('events').EventEmitter
+ 
+ // Node.js 0.8, 0.10 and 0.12 support
+-Object.assign = process.versions.modules >= 46
+-  ? Object.assign // eslint-disable-next-line
+-  : util._extend
++if (!Object.assign) {
++  // eslint-disable-next-line
++  Object.assign = util._extend
++}
+ 
+ var spdy = require('../spdy')
+ 
